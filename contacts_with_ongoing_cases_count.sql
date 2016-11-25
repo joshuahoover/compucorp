@@ -4,6 +4,6 @@ FROM civicrm_contact
   JOIN civicrm_case ON civicrm_case.id = civicrm_case_contact.case_id
   JOIN civicrm_option_value ON civicrm_option_value.value = civicrm_case.status_id
   JOIN civicrm_option_group ON civicrm_option_group.id = civicrm_option_value.option_group_id
+    AND civicrm_option_group.name = 'case_status'
 WHERE civicrm_contact.contact_type = 'Individual'
-  AND civicrm_option_group.name = 'case_status'
 GROUP BY civicrm_contact.id;
